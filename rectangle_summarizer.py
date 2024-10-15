@@ -1,3 +1,4 @@
+# %% Reading CSV
 import csv
 with open('rectangles_data.csv', newline="") as f:
     reader = csv.reader(f)
@@ -5,11 +6,18 @@ with open('rectangles_data.csv', newline="") as f:
     for row in reader:
         print(row)
 
-rectangles = row
-for r in rectangles:
-    print(r)
+# %% Counting Rows and Columns
+import csv
+with open('rectangles_data.csv', newline="") as f:
+    data = list(csv.reader(f))
+print("rows:",len(data)-1)
+print("columns:", len(data[0]))
 
+# %%
 with open("summary.csv", 'w', newline="") as f:
     writer = csv.writer(f)
-    writer.writerow([r[0]] for r in rectangles)
-    writer.writerow([r[1]] for r in rectangles)
+    writer.writerow([r[0] for r in data])
+    writer.writerow([r[1] for r in data])
+
+
+
